@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct TextEditorV: View {
+    @AppStorage("notes") private var notes = ""
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationStack {
+            VStack {
+                TextEditor(text: $notes)
+                    .navigationTitle("Notes")
+                    .padding()
+            }
         }
-        .padding()
     }
 }
 
